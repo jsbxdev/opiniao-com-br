@@ -1,6 +1,6 @@
-# admin-opiniao-com-br
+# admin
 
-> Lanchonete Opinião - Administrador
+> Lanchonete Opinião - Adminstrador
 
 ## Build Setup
 
