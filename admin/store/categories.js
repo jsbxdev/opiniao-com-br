@@ -14,7 +14,7 @@ export const getters = {
 
 export const actions = {
   bindCategories: firestoreAction((context) => {
-    context.bindFirestoreRef('categories', categoriesRef, {
+    context.bindFirestoreRef('categories', categoriesRef.orderBy('order'), {
       reset: false
     })
   }),
