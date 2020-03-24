@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <v-container class="pa-0">
     <CategoryList></CategoryList>
-  </div>
+  </v-container>
 </template>
 
 <script>
