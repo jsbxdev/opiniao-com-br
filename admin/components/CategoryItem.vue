@@ -1,5 +1,5 @@
 <template>
-  <v-col v-if="item" cols="12" sm="4">
+  <v-col v-if="item" cols="12" sm="6" md="4">
     <v-card>
       <!-- Item Editor -->
       <v-container v-if="showEditor">
