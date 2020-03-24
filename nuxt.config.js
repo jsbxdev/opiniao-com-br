@@ -6,8 +6,8 @@ export default {
    ** Headers of the page
    */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
+    titleTemplate: '%s - ' + 'Lanchoente Opinião',
+    title: 'Lanchoente Opinião',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -17,7 +17,14 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      // {
+      // rel: 'stylesheet',
+      // href:
+      // 'https://fonts.googleapis.com/css?family=Oswald&display=swap'
+      // }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -60,6 +67,7 @@ export default {
    */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    treeShake: true,
     defaultAssets: {
       icons: 'mdiSvg'
     },
@@ -103,5 +111,8 @@ export default {
         ]
       }
     }
+  },
+  server: {
+    host: '0.0.0.0' // default: localhost
   }
 }
