@@ -10,6 +10,7 @@ export default firebase.initializeApp(firebaseConfig)
 export const database = firebase.firestore()
 export const categoriesRef = database.collection('categories')
 export const itemsRef = database.collection('items')
+export const usersRef = database.collection('users')
 
 // Firestore Methods
 const { Timestamp, GeoPoint, FieldValue } = firebase.firestore
