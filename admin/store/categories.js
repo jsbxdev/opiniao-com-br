@@ -20,7 +20,8 @@ export const actions = {
   }),
   create() {
     categoriesRef.add({
-      created: Timestamp.now()
+      created: Timestamp.now(),
+      order: 0
     })
   },
   update: (context, category = {}) =>
