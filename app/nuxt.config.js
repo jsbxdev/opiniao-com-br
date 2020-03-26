@@ -90,7 +90,6 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {},
-    analyze: true,
     babel: {
       presets({ isServer }) {
         return [
