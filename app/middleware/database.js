@@ -1,4 +1,4 @@
 export default function({ store, route, redirect }) {
-  store.dispatch('categories/bindCategories')
-  store.dispatch('items/bindItems')
+  store.dispatch('categories/fetchCategories')
+  store.dispatch('items/fetchItems')
 }

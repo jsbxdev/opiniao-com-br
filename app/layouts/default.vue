@@ -19,7 +19,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar fixed app elevate-on-scroll color="white">
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer" /> -->
       <v-toolbar-title v-text="title" />
       <v-spacer></v-spacer>
       <v-btn icon>

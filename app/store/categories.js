@@ -1,10 +1,7 @@
-// Regex: /([^\/]*$)/g extracts id from URL
+import FireStoreParser from 'firestore-parser'
 
-import { firestoreAction } from 'vuexfire'
-// import { DateTime } from 'luxon'
-// import autoParse from 'auto-parse'
-// import Fuse from 'fuse.js'
-import { categoriesRef } from '~/firebase'
+const url =
+  'https://firestore.googleapis.com/v1/projects/opiniao-com-br/databases/(default)/documents/categories/?pageSize=20'
 
 export const state = () => ({
   categories: []
@@ -17,13 +14,22 @@ export const mutations = {
 }
 
 export const getters = {
+  getCategoryById: (state) => (categoryId) =>
+    state.categories.find((category) => category.id === categoryId),
   getCategoryList: (state) => state.categories
 }
 
 export const actions = {
-  bindCategories: firestoreAction((context) => {
-    context.bindFirestoreRef('categories', categoriesRef.orderBy('order'), {
-      reset: false
-    })
-  })
+  fetchCategories({ commit }) {
+    this.$axios
+      .$get(url)
+      .then((response) =>
+        FireStoreParser(response).documents.map((category) => ({
+          id: category.name.match(/([^/]*$)/)[0],
+          ...category.fields
+        }))
+      )
+      .then((document) => document.sort((a, b) => a.order - b.order))
+      .then((documents) => commit('setCategories', documents))
+  }
 }
