@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import { categoriesRef } from '../firebase'
 import CategoryItem from './CategoryItem.vue'
 export default {
   components: {
@@ -28,24 +27,12 @@ export default {
       type: String
     }
   },
-  data() {
-    return {
-      category: {}
-    }
-  },
   computed: {
     items() {
       return this.$store.getters['items/getItemsFromCategory'](this.categoryId)
-    }
-  },
-  watch: {
-    categoryId: {
-      immediate: true,
-      handler(id) {
-        if (id) {
-          this.$bind('category', categoriesRef.doc(id))
-        }
-      }
+    },
+    category() {
+      return this.$store.getters['categories/getCategoryById'](this.categoryId)
     }
   }
 }
