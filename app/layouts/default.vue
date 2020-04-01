@@ -15,7 +15,7 @@
         ></v-img>
       </template>
       <v-spacer></v-spacer>
-      <v-btn icon>
+      <v-btn icon @click="share">
         <v-icon>{{ icons.mdiShareVariant }}</v-icon>
       </v-btn>
     </v-app-bar>
@@ -55,7 +55,19 @@ export default {
           to: '/inspire'
         }
       ],
-      title: 'Lanchonete Opinião'
+      title: 'Lanchonete Opinião',
+      shareData: {
+        title: 'Lanchonete Opinião',
+        text: 'Conheça o nosso cardápio!',
+        url: 'https://lanchoneteopiniao.com.br'
+      }
+    }
+  },
+  methods: {
+    async share() {
+      try {
+        await navigator.share(this.shareData)
+      } catch (e) {}
     }
   },
   middleware: 'database'
