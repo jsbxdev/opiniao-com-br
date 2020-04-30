@@ -1,0 +1,15 @@
+{
+  "folders": [
+    {
+      "name": "admin",
+      "path": "./admin/"
+    },
+    {
+      "name": "app",
+      "path": "./app/"
+    },
+    {
+      "path": "."
+    }
+  ]
+}
