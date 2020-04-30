@@ -6,8 +6,8 @@ export default {
    ** Headers of the page
    */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
+    titleTemplate: 'Lanchonete Opinião',
+    title: 'Lanchonete Opinião',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -80,6 +80,18 @@ export default {
           success: colors.green.accent3
         }
       }
+    }
+  },
+  /**
+   * PWA config
+   */
+  pwa: {
+    name: 'Lanchonete Opinião',
+    description: 'Melhor Lanche da Região',
+    manifest: {
+      name: 'Lanchonete Opinião',
+      short_name: 'Lanchonete Opinião',
+      lang: 'pt-br'
     }
   },
   /*
