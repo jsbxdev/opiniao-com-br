@@ -16,7 +16,23 @@
           <v-card link @click="openWhatsApp">
             <v-list-item two-line>
               <v-list-item-avatar>
-                <v-icon size="26">{{ icons.mdiMoped }}</v-icon>
+                <v-fade-transition>
+                  <v-icon
+                    v-if="showWhatsAppIcon"
+                    size="26"
+                    color="#25D366"
+                    transition="fade-transition"
+                  >
+                    {{ icons.mdiWhatsapp }}
+                  </v-icon>
+                  <v-icon
+                    v-if="!showWhatsAppIcon"
+                    size="26"
+                    transition="fade-transition"
+                  >
+                    {{ icons.mdiMoped }}
+                  </v-icon>
+                </v-fade-transition>
               </v-list-item-avatar>
               <v-list-item-content>
                 <v-list-item-title class="body-2 font-weight-medium">
@@ -43,12 +59,19 @@ export default {
       icons: {
         mdiMoped,
         mdiWhatsapp
-      }
+      },
+      showWhatsAppIcon: false
     }
+  },
+  created() {
+    setInterval(this.toggleIcon, 5000)
   },
   methods: {
     openWhatsApp() {
       window.open('https://wa.me/551833513545', '_blank')
+    },
+    toggleIcon() {
+      this.showWhatsAppIcon = !this.showWhatsAppIcon
     }
   }
 }
